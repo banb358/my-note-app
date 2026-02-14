@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal Note App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts: M PLUS Rounded 1c -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>Notes</h1>
+                <button id="new-note-btn" class="icon-btn" title="新規作成">
+                    <i data-lucide="plus"></i>
+                </button>
+            </div>
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <i data-lucide="search" class="search-icon"></i>
+                    <input type="text" id="search-input" placeholder="検索...">
+                </div>
+            </div>
+            <nav class="note-list" id="note-list">
+                <!-- Notes will be injected here -->
+            </nav>
+            <!-- Mascot Area -->
+            <div class="sidebar-footer">
+                <img src="mascot.png" alt="Mascot" class="sidebar-mascot">
+            </div>
+        </aside>
+
+        <!-- Main Editor -->
+        <main class="editor">
+            <header class="editor-header">
+                <button id="mobile-back-btn" class="icon-btn mobile-only">
+                    <i data-lucide="chevron-left"></i>
+                </button>
+                <div class="editor-meta">
+                    <span id="created-date"></span>
+                </div>
+                <div class="editor-actions">
+                    <button id="delete-note-btn" class="icon-btn danger" title="削除">
+                        <i data-lucide="trash-2"></i>
+                    </button>
+                </div>
+            </header>
+            <div class="editor-content">
+                <input type="text" id="note-title" placeholder="タイトル" spellcheck="false">
+                <textarea id="note-body" placeholder="ノートを入力..." spellcheck="false"></textarea>
+                <!-- Empty State -->
+                <div id="empty-state" class="empty-state">
+                    <div class="empty-content">
+                        <img src="mascot.png" alt="Welcome" class="empty-mascot">
+                        <div class="speech-bubble">
+                            <p>新しいノートを書いてみよう！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
