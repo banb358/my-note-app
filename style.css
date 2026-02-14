@@ -196,6 +196,47 @@ body {
 .sidebar-footer {
     padding: 1rem;
     text-align: center;
+    position: relative;
+}
+
+.sidebar-bubble {
+    position: absolute;
+    bottom: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 8px 16px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(187, 134, 252, 0.15);
+    border: 2px solid var(--accent-soft);
+    white-space: nowrap;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.sidebar-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px 8px 0 8px;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+}
+
+.sidebar-footer:hover .sidebar-bubble {
+    opacity: 1;
+    visibility: visible;
+    bottom: 95%;
+}
+
+.sidebar-bubble span {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
 }
 
 .sidebar-mascot {

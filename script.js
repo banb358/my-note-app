@@ -14,6 +14,7 @@ class NoteApp {
         this.backBtn = document.getElementById('mobile-back-btn');
         this.sidebar = document.querySelector('.sidebar');
         this.emptyState = document.getElementById('empty-state');
+        this.mascotGreeting = document.getElementById('mascot-greeting');
 
         this.init();
     }
@@ -28,6 +29,7 @@ class NoteApp {
         this.backBtn.addEventListener('click', () => this.toggleSidebar(true));
 
         this.renderNoteList();
+        this.updateMascotGreeting();
 
         // Select first note if available
         if (this.notes.length > 0) {
@@ -150,6 +152,23 @@ class NoteApp {
         } else {
             this.sidebar.classList.add('hidden');
         }
+    }
+
+    updateMascotGreeting() {
+        if (!this.mascotGreeting) return;
+
+        const hour = new Date().getHours();
+        let greeting = "Hello!";
+
+        if (hour >= 5 && hour < 12) {
+            greeting = "Good morning! / おはよう";
+        } else if (hour >= 12 && hour < 18) {
+            greeting = "Good afternoon! / こんにちは";
+        } else {
+            greeting = "Good evening! / こんばんは";
+        }
+
+        this.mascotGreeting.textContent = greeting;
     }
 }
 
